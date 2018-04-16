@@ -1,2 +1,3 @@
 # phpfiles
-//Dynamic table manipulation in php
+//Command-line php file processing
+
