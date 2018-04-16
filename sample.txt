@@ -1,0 +1,1 @@
+Most of the algorithms that Snitch employs can be configured by the user for optimum results. Advanced users can set up their own behavioral template that Snitch will adhere to when scanning the target computer.
