@@ -1,0 +1,49 @@
+public function getTable($page)
+	{
+		$page_per_record=10;
+		$db2=$this->load->database('user',TRUE);
+		$model=new table_model();
+		$page=($page-1)*$page_per_record;
+		$data=$model->getUser(array(),$page,10);
+		$total_records=$model->getCount($db2,'users');
+		$directors=json_decode($data,1);
+		$table=$directors['data'];
+		$table_columns=$model->getTableColumns($db2,'users');
+		$columns=array();
+		$div='<table class="table table-bordered"><tr>';
+		foreach($table_columns['directors'] as $k=>$v)
+		{
+			$div.='<th>'.strtoupper($v->COLUMN_NAME).'</th>';
+		}
+		$div.='</tr>';
+		if(!empty($table))
+		{
+			foreach($table as $key=>$value)
+			{
+				$div.='<tr>';
+				foreach($value as $k=>$v)
+				{
+					$div.='<td>'.$v.'</td>';
+				}
+				$div.='</tr>';
+			}
+			$div.='</table>';
+		}
+		else
+		{
+			$div.='<tr colspan=6>No Data available</tr>';
+		}
+		$page_link='<div class="col-md-6" style="float:left"></div><div class="col-md-6" style="float:left;">';
+		
+		$total_pages=ceil($total_records/$page_per_record);
+		
+		for($i=1;$i<$total_pages;$i++)
+			{
+				$link=$i+1;
+				$url=base_url().'users/getTable/'.$link;
+				$page_link.='<a data-link='.$url.' class="page" style="border:1px solid blue;padding:12px">'.$i.'</a>';
+			}
+			$page_link.='</div>';
+			echo json_encode(array("table"=>$div,"total"=>$total_records,"pagination"=>$page_link));
+			exit;
+		}
