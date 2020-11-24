@@ -11,7 +11,7 @@ public function getTable($page)
 		$table_columns=$model->getTableColumns($db2,'users');
 		$columns=array();
 		$div='<table class="table table-bordered"><tr>';
-		foreach($table_columns['directors'] as $k=>$v)
+		foreach($table_columns['users'] as $k=>$v)
 		{
 			$div.='<th>'.strtoupper($v->COLUMN_NAME).'</th>';
 		}
