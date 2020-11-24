@@ -2,7 +2,7 @@ public function getTable($page)
 	{
 		$page_per_record=10;
 		$db2=$this->load->database('user',TRUE);
-		$model=new table_model();
+		$model=new user_model();
 		$page=($page-1)*$page_per_record;
 		$data=$model->getUser(array(),$page,10);
 		$total_records=$model->getCount($db2,'users');
