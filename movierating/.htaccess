@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^api/view api/view.php [NC,L]
+RewriteRule ^api/process api/process.php [NC,L]
+RewriteRule ^api/edit/([0-9]+)?$ api/process.php?edit=1&id=$1 [NC,L]
+RewriteRule ^api/delete/([0-9]+)?$ api/process.php?delete=1&id=$1 [NC,L]
+RewriteRule ^(.*)/?$ index.php?id=$1 [QSA,L]
