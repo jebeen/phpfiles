@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>
+            Aviation 
+        </title>
+        <script type="text/javascript" src="../../bootstrap/js/jquery.min.js"></script>
+        <script type="text/javascript" src="./script.js"></script>
+        <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
+            </head>
+    <body>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3><center>Aviation</center></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 search-container">
+                <select name="country" class=" country-input form-control">
+                    <option value="">Select country</option>
+                </select>
+                <select name="lookup" class="form-control">
+                    <option value="">Select</option>
+                    <option value="airlines">Airline</option>
+                    <option value="airports">Airport</option>
+                </select>
+                <div class="result"></div>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="flight-search" onChange="getFlights(this.value)" />
+                <div class="results">
+
+                </div>
+            </div>
+            <div class="col-md-3 features">
+                part3
+            </div>
+        </div>
+        <div class="row">
+          <p>Copyright @2023</p>
+        </div>
+    </body>
+</html>
